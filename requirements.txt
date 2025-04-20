@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+transformers
+torch
+faiss-cpu
+langchain
+pypdf
+unstructured
+sentence-transformers
+python-multipart
+ipython
+black
+pytest
