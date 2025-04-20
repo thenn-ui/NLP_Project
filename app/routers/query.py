@@ -9,7 +9,8 @@ async def query_doc(
     file: UploadFile = File(None),
     text: str = Form(None),
     question: str = Form(...),
-    top_k: int = Form(3)
+    top_k: int = Form(3),
+    use_cot: bool = Form(False)
 ):
     # Validate input
     if file:
@@ -25,7 +26,7 @@ async def query_doc(
 
     # Get answer from RAG pipeline
     try:
-        response = answer_question(doc_text, question, k=top_k)
+        response = answer_question(doc_text, question, k=top_k, use_cot=use_cot)
         return response
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error while answering: {str(e)}")
