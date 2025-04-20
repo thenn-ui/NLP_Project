@@ -11,7 +11,7 @@ app = FastAPI(title="SmartDocAI", version="0.1")
 init_summarizer()
 
 app.include_router(summarize.router)
-#app.include_router(query.router)
+app.include_router(query.router)
 
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
