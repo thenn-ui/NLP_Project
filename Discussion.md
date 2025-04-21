@@ -1,5 +1,5 @@
 ## Discussion:
-### Members: Thenn, Devarsh
+### Members: Thenn, Devarsh, Lakshmi Vyshnavi Ummadisetti
 
 ## TOPIC: document analysis:
 Prof question: in which area? I would limit the scope to one, max two domains.
