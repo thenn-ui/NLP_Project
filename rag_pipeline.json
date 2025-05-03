@@ -1,0 +1,87 @@
+{
+  "pipelineSpec": {
+    "components": {
+      "comp-summarize-text": {
+        "executorLabel": "exec-summarize-text",
+        "inputDefinitions": {
+          "parameters": {
+            "text": {
+              "type": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "artifacts": {
+            "summary_output": {
+              "artifactType": {
+                "schemaTitle": "system.Dataset",
+                "schemaVersion": "0.0.1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "deploymentSpec": {
+      "executors": {
+        "exec-summarize-text": {
+          "container": {
+            "args": [
+              "--executor_input",
+              "{{$}}",
+              "--function_to_execute",
+              "summarize_text"
+            ],
+            "command": [
+              "sh",
+              "-c",
+              "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip || python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1 python3 -m pip install --quiet     --no-warn-script-location 'transformers' 'torch' 'textwrap3' 'kfp==1.8.22' && \"$0\" \"$@\"\n",
+              "sh",
+              "-ec",
+              "program_path=$(mktemp -d)\nprintf \"%s\" \"$0\" > \"$program_path/ephemeral_component.py\"\npython3 -m kfp.v2.components.executor_main                         --component_module_path                         \"$program_path/ephemeral_component.py\"                         \"$@\"\n",
+              "\nimport kfp\nfrom kfp.v2 import dsl\nfrom kfp.v2.dsl import *\nfrom typing import *\n\ndef summarize_text(text: str, summary_output: Output[Dataset]):\n    from transformers import pipeline\n    import textwrap\n\n    summarizer = pipeline(\"summarization\", model=\"facebook/bart-large-cnn\")\n    chunks = textwrap.wrap(text, 2000, break_long_words=False, break_on_hyphens=False)\n\n    summaries = []\n    for chunk in chunks:\n        result = summarizer(chunk, max_length=512, min_length=100, do_sample=False)\n        summaries.append(result[0][\"summary_text\"])\n\n    combined_summary = \" \".join(summaries)\n    with open(summary_output.path, \"w\") as f:\n        f.write(combined_summary)\n\n"
+            ],
+            "image": "python:3.9"
+          }
+        }
+      }
+    },
+    "pipelineInfo": {
+      "name": "rag-pipeline"
+    },
+    "root": {
+      "dag": {
+        "tasks": {
+          "summarize-text": {
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-summarize-text"
+            },
+            "inputs": {
+              "parameters": {
+                "text": {
+                  "componentInputParameter": "text"
+                }
+              }
+            },
+            "taskInfo": {
+              "name": "summarize-text"
+            }
+          }
+        }
+      },
+      "inputDefinitions": {
+        "parameters": {
+          "text": {
+            "type": "STRING"
+          }
+        }
+      }
+    },
+    "schemaVersion": "2.0.0",
+    "sdkVersion": "kfp-1.8.22"
+  },
+  "runtimeConfig": {}
+}
