@@ -1,8 +1,4 @@
 # NLP_Project
-## Project Kickoff
-
-This is a starter repository for our project.
-
 
 # 📚 BREIFLY: Scientific Document Summarizer & Chat Assistant
 
