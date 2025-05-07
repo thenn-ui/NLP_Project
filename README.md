@@ -3,13 +3,57 @@
 
 This is a starter repository for our project.
 
-## Description
 
-Initial commit to confirm project setup. More updates coming soon.
+# 📚 BREIFLY: Scientific Document Summarizer & Chat Assistant
 
-Project extension guidelines
+**BREIFLY** is a powerful web application built with Streamlit that allows users to upload, summarize, and interactively chat with scientific or technical documents. It leverages large language models from **Groq (LLaMA 3)** and integrates **MongoDB** for storage and **TF-IDF-based chunk retrieval** to power document-aware question answering.
 
-Thank you for your interest in extending the functionality of the Drug Interaction Checker project on GitHub. Below are some guidelines to help you contribute to the project effectively:
+---
+
+## 🚀 Features
+
+- 📄 Upload `.pdf` and `.txt` documents
+- ✂️ Chunk large documents for better processing
+- 🧠 Summarize content using Groq’s LLaMA 3
+- 💬 Ask questions based on document context
+- 🧾 MongoDB-backed chunk storage and retrieval
+- 🎯 TF-IDF similarity search to find relevant context
+- 🧪 Specifically optimized for **scientific or technical papers**
+
+---
+
+## 📦 Tech Stack
+
+| Layer           | Tool/Library                        |
+|----------------|-------------------------------------|
+| Frontend       | Streamlit                           |
+| LLMs           | Groq (LLaMA 3-70B)                  |
+| Summarization  | Hugging Face (Fallback)             |
+| Backend        | Python, pdfplumber, scikit-learn    |
+| Database       | MongoDB Atlas                       |
+| Vectorization  | TF-IDF (sklearn)                    |
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/breifly.git
+cd breifly
+
+### 2. (Optional) Create a Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate   # or .\venv\Scripts\activate on Windows
+
+### 3. Install Requirements
+
+```bash
+pip install -r requirements.txt
+
 
 **Feature Suggestions** : If you have ideas for new features or improvements, please create an issue on the GitHub repository outlining the feature request in detail. This will allow for discussion and collaboration among contributors.
 
