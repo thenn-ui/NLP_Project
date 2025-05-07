@@ -39,22 +39,22 @@ This is a starter repository for our project.
 
 ### 1. Clone the Repository
 
-```bash
+```console
 git clone https://github.com/your-username/breifly.git
-cd breifly```
-
+cd breifly
+```
 
 ### 2. (Optional) Create a Virtual Environment
 
-```bash
+```console
 python -m venv venv
 source venv/bin/activate   # or .\venv\Scripts\activate on Windows
-
+```
 ### 3. Install Requirements
 
-```bash
+```console
 pip install -r requirements.txt
-
+```
 
 **Feature Suggestions** : If you have ideas for new features or improvements, please create an issue on the GitHub repository outlining the feature request in detail. This will allow for discussion and collaboration among contributors.
 
