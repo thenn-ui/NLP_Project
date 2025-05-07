@@ -41,7 +41,8 @@ This is a starter repository for our project.
 
 ```bash
 git clone https://github.com/your-username/breifly.git
-cd breifly
+cd breifly```
+
 
 ### 2. (Optional) Create a Virtual Environment
 
