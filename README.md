@@ -35,6 +35,23 @@ This is a starter repository for our project.
 
 ---
 
+## 🔑 API Keys and Database Configuration
+
+### 🗃️ MongoDB Atlas
+- Create a free MongoDB cluster at [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
+- Replace the `mongo_uri` in the script with your connection string.
+- Ensure your IP address is whitelisted and database access is enabled.
+
+### ⚡ Groq API
+- Sign up at [https://console.groq.com](https://console.groq.com) to get your API key.
+- Replace the `api_key` variable in your code with your Groq token.
+
+### 🤖 Hugging Face API (Optional)
+- Generate a token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+- Replace the token in the `headers` dictionary in your script.
+
+---
+
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
@@ -54,6 +71,29 @@ source venv/bin/activate   # or .\venv\Scripts\activate on Windows
 ```console
 pip install -r requirements.txt
 ```
+
+### In the App:
+- Upload a `.pdf` or `.txt` file.
+- Choose from:
+  - 🔍 **Summarize** — Breaks content into manageable chunks and summarizes using LLM.
+  - 💬 **Chat with Document** — Performs TF-IDF-based similarity search and queries Groq's LLaMA 3 with context.
+- Stored summaries and document chunks can be reused for faster access.
+
+---
+
+## 🔒 Security Considerations
+- API keys should **not** be hardcoded in production environments.
+- Use environment variables or a `.env` file to store sensitive credentials.
+- Ensure MongoDB access is IP-restricted and protected with authentication.
+
+---
+
+## 📌 Future Enhancements
+- ✅ Integrate full-text vector search (e.g., FAISS or MongoDB Atlas Search)
+- 🔁 Add user authentication and multi-user session support
+- 📊 Build a dashboard for document usage and analytics
+- 📤 Allow exporting summaries and chat sessions to PDF or Markdown
+  
 # 💡 Contribution Guidelines
 **Feature Suggestions** : If you have ideas for new features or improvements, please create an issue on the GitHub repository outlining the feature request in detail. This will allow for discussion and collaboration among contributors.
 
