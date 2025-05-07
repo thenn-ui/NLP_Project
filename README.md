@@ -40,8 +40,7 @@ This is a starter repository for our project.
 ### 1. Clone the Repository
 
 ```console
-git clone https://github.com/your-username/breifly.git
-cd breifly
+git clone [https://github.com/thenn-ui/NLP_Project](https://github.com/thenn-ui/NLP_Project)
 ```
 
 ### 2. (Optional) Create a Virtual Environment
@@ -55,7 +54,7 @@ source venv/bin/activate   # or .\venv\Scripts\activate on Windows
 ```console
 pip install -r requirements.txt
 ```
-
+# 💡 Contribution Guidelines
 **Feature Suggestions** : If you have ideas for new features or improvements, please create an issue on the GitHub repository outlining the feature request in detail. This will allow for discussion and collaboration among contributors.
 
 **Code Contributions** : If you'd like to contribute code to the project, please follow these steps:
