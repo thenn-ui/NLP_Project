@@ -3,14 +3,98 @@
 
 This is a starter repository for our project.
 
-## Description
 
-Initial commit to confirm project setup. More updates coming soon.
+# 📚 BREIFLY: Scientific Document Summarizer & Chat Assistant
 
-Project extension guidelines
+**BREIFLY** is a powerful web application built with Streamlit that allows users to upload, summarize, and interactively chat with scientific or technical documents. It leverages large language models from **Groq (LLaMA 3)** and integrates **MongoDB** for storage and **TF-IDF-based chunk retrieval** to power document-aware question answering.
 
-Thank you for your interest in extending the functionality of the Drug Interaction Checker project on GitHub. Below are some guidelines to help you contribute to the project effectively:
+---
 
+## 🚀 Features
+
+- 📄 Upload `.pdf` and `.txt` documents
+- ✂️ Chunk large documents for better processing
+- 🧠 Summarize content using Groq’s LLaMA 3
+- 💬 Ask questions based on document context
+- 🧾 MongoDB-backed chunk storage and retrieval
+- 🎯 TF-IDF similarity search to find relevant context
+- 🧪 Specifically optimized for **scientific or technical papers**
+
+---
+
+## 📦 Tech Stack
+
+| Layer           | Tool/Library                        |
+|----------------|-------------------------------------|
+| Frontend       | Streamlit                           |
+| LLMs           | Groq (LLaMA 3-70B)                  |
+| Summarization  | Hugging Face (Fallback)             |
+| Backend        | Python, pdfplumber, scikit-learn    |
+| Database       | MongoDB Atlas                       |
+| Vectorization  | TF-IDF (sklearn)                    |
+
+---
+
+## 🔑 API Keys and Database Configuration
+
+### 🗃️ MongoDB Atlas
+- Create a free MongoDB cluster at [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
+- Replace the `mongo_uri` in the script with your connection string.
+- Ensure your IP address is whitelisted and database access is enabled.
+
+### ⚡ Groq API
+- Sign up at [https://console.groq.com](https://console.groq.com) to get your API key.
+- Replace the `api_key` variable in your code with your Groq token.
+
+### 🤖 Hugging Face API (Optional)
+- Generate a token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens).
+- Replace the token in the `headers` dictionary in your script.
+
+---
+
+## 🛠️ Setup Instructions
+
+### 1. Clone the Repository
+
+```console
+git clone [https://github.com/thenn-ui/NLP_Project](https://github.com/thenn-ui/NLP_Project)
+```
+
+### 2. (Optional) Create a Virtual Environment
+
+```console
+python -m venv venv
+source venv/bin/activate   # or .\venv\Scripts\activate on Windows
+```
+### 3. Install Requirements
+
+```console
+pip install -r requirements.txt
+```
+
+### In the App:
+- Upload a `.pdf` or `.txt` file.
+- Choose from:
+  - 🔍 **Summarize** — Breaks content into manageable chunks and summarizes using LLM.
+  - 💬 **Chat with Document** — Performs TF-IDF-based similarity search and queries Groq's LLaMA 3 with context.
+- Stored summaries and document chunks can be reused for faster access.
+
+---
+
+## 🔒 Security Considerations
+- API keys should **not** be hardcoded in production environments.
+- Use environment variables or a `.env` file to store sensitive credentials.
+- Ensure MongoDB access is IP-restricted and protected with authentication.
+
+---
+
+## 📌 Future Enhancements
+- ✅ Integrate full-text vector search (e.g., FAISS or MongoDB Atlas Search)
+- 🔁 Add user authentication and multi-user session support
+- 📊 Build a dashboard for document usage and analytics
+- 📤 Allow exporting summaries and chat sessions to PDF or Markdown
+  
+# 💡 Contribution Guidelines
 **Feature Suggestions** : If you have ideas for new features or improvements, please create an issue on the GitHub repository outlining the feature request in detail. This will allow for discussion and collaboration among contributors.
 
 **Code Contributions** : If you'd like to contribute code to the project, please follow these steps:
